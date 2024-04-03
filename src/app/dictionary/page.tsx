@@ -1,10 +1,11 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import './style.css'
+
 const Product = () => {
   const [inputWord, setInputWord] = useState('');
   const [data, setData] = useState([]);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const searchWord = async () => {
@@ -13,7 +14,7 @@ const Product = () => {
           const response = await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${inputWord}`);
           const jsonData = await response.json();
           setData(jsonData);
-          setError(null);
+          setError('');
         } catch (error) {
           setData([]);
           setError("Error fetching data from API");
@@ -26,7 +27,6 @@ const Product = () => {
 
   const handlePlaySound = () => {
     if (data.length > 0 && data[0]?.phonetics && data[0]?.phonetics[0]) {
-      console.log("data", data);
       const audioUrl = `https:${data[0].phonetics[0].audio}`;
       const audioElement = document.getElementById('sound') as HTMLAudioElement;
       if (audioElement) {
