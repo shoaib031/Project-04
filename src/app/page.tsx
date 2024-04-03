@@ -1,29 +1,9 @@
-import Link from 'next/link';
+import React from 'react'
 
-export default function Home() {
+const page = () => {
   return (
-    <div className="bg-slate-500 w-[100%]">
-      <h1>Navigation Items</h1>
-      <nav>
-        <ul>
-          <li>
-            <Link href="/item1">
-              Item 1
-            </Link>
-          </li>
-          <li>
-            <Link href="/item2">
-              Item 2
-            </Link>
-          </li>
-
-          <li>
-            <Link href="/item3">
-              Item 3
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
-  );
+    <div>page</div>
+  )
 }
+
+export default page
