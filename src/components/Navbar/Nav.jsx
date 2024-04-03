@@ -4,9 +4,9 @@ import React from 'react'
 const Nav = () => {
     return (
         <div>
-            <Link href="/about">About</Link>
-            <Link href="/product">Product</Link>
-            <Link href="/contact">Conatact Us</Link>
+            <Link href="/randomjokes">random-jokes</Link>
+            <Link href="/dictionary">Dictionary</Link>
+            <Link href="/quote">quote</Link>
         </div>
     )
 }
