@@ -1,10 +1,24 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import './style.css'
+import './style.css';
+
+interface DictionaryData {
+  phonetics: {
+    audio: string;
+  }[];
+  meanings: {
+    partOfSpeech: string;
+    phonetic: string;
+    definitions: {
+      definition: string;
+      example?: string;
+    }[];
+  }[];
+}
 
 const Product = () => {
   const [inputWord, setInputWord] = useState('');
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<DictionaryData[]>([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -60,7 +74,7 @@ const Product = () => {
           {data.length > 0 && (
             <div className="details">
               <p>{data[0]?.meanings[0]?.partOfSpeech}</p>
-              <p>/{data[0]?.phonetic}/</p>
+              <p>/{data[0]?.meanings[0]?.phonetic}/</p>
             </div>
           )}
           {data.length > 0 && (
