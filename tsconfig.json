@@ -21,6 +21,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/Navbar/Nav.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/components/Navbar/Nav.jsx", "src/app/recipeapp/page.jsx", "src/app/pokemonguide/page.jsx"],
   "exclude": ["node_modules"]
 }

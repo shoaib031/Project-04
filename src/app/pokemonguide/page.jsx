@@ -2,28 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
 
-interface PokemonData {
-  stats: {
-    base_stat: number;
-  }[];
-  sprites: {
-    other: {
-      dream_world: {
-        front_default: string;
-      };
-    };
-  };
-  name: string;
-  types: {
-    type: {
-      name: string;
-    };
-  }[];
-}
-
 const Page = () => {
-  const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const [pokemonData, setPokemonData] = useState(null);
+  const [error, setError] = useState(null);
 
   const getPokeData = async () => {
     const url = "https://pokeapi.co/api/v2/pokemon/";
@@ -34,7 +15,7 @@ const Page = () => {
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
-      const data: PokemonData = await response.json();
+      const data= await response.json();
       generateCard(data);
     } catch (error) {
       setError('Error fetching Pokemon data');
@@ -42,7 +23,7 @@ const Page = () => {
     }
   };
 
-  const generateCard = (data: PokemonData) => {
+  const generateCard = (data) => {
     const hp = data.stats[0].base_stat;
     const imgSrc = data.sprites.other.dream_world.front_default;
     const pokeName = data.name;
@@ -61,7 +42,7 @@ const Page = () => {
     });
   };
 
-  const appendTypes = (types: string[]) => {
+  const appendTypes = (types) => {
     return types.map((type, index) => (
       <span key={index}>{type}</span>
     ));
@@ -72,7 +53,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={style.container}>
       {error && <p>{error}</p>}
       <div id='card'>
         {pokemonData && (
