@@ -19,7 +19,8 @@ const Page = () => {
       const data = await response.json();
       generateCard(data);
     } catch (error) {
-      setError('Error fetching Pokemon data');
+      // setError('Error fetching Pokemon data');
+      console.log(setError)
     }
   };
 
