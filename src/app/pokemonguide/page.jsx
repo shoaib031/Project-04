@@ -53,7 +53,7 @@ const Page = () => {
   }, []);
 
   return (
-    <div className={style.container}>
+    <div>
       {error && <p>{error}</p>}
       <div id='card'>
         {pokemonData && (
