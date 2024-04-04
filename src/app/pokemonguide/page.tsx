@@ -1,10 +1,10 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import styles from './style.css'; 
-
+import './style.css';
 
 const Page = () => {
   const [pokemonData, setPokemonData] = useState(null);
+  const [error, setError] = useState(null);
 
   const getPokeData = async () => {
     const url = "https://pokeapi.co/api/v2/pokemon/";
@@ -12,10 +12,13 @@ const Page = () => {
     const finalUrl = `${url}${id}`;
     try {
       const response = await fetch(finalUrl);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
       const data = await response.json();
       generateCard(data);
     } catch (error) {
-      console.error('Error fetching Pokemon data:', error);
+      setError('Error fetching Pokemon data');
     }
   };
 
@@ -46,10 +49,11 @@ const Page = () => {
 
   useEffect(() => {
     getPokeData();
-  }, []); 
+  }, []);
 
   return (
     <div className={styles.container}>
+      {error && <p>{error}</p>}
       <div id='card'>
         {pokemonData && (
           <>
