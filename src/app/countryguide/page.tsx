@@ -1,16 +1,15 @@
 "use client"
-import './style.css'
-
-import { useState, useEffect } from 'react';
+import './style.css';
+import React, { useState, useEffect } from 'react';
 
 const Page = () => {
     const [countryName, setCountryName] = useState('');
-    const [countryData, setCountryData] = useState(null);
+    const [countryData, setCountryData] = useState<any>(null); // Set any as type for countryData
     const [errorMessage, setErrorMessage] = useState('');
 
     useEffect(() => {
         const searchBtn = document.getElementById("search-btn");
-        const countryInp = document.getElementById("country-inp");
+        const countryInp = document.getElementById("country-inp") as HTMLInputElement; // Cast to HTMLInputElement
 
         const handleSearch = async () => {
             const name = countryInp.value.trim();
@@ -39,10 +38,14 @@ const Page = () => {
             }
         };
 
-        searchBtn.addEventListener("click", handleSearch);
+        if (searchBtn) { // Add null check for searchBtn
+            searchBtn.addEventListener("click", handleSearch);
+        }
 
         return () => {
-            searchBtn.removeEventListener("click", handleSearch);
+            if (searchBtn) { // Add null check for searchBtn
+                searchBtn.removeEventListener("click", handleSearch);
+            }
         };
     }, []);
 
