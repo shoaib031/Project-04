@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0
+}
+
+body {
+    background-color: #3d64e6;
+}
+
+.container {
+    background-color: #ffffff;
+    width: 80vw;
+    max-width: 37.5em;
+    padding: 3em 2.5em;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    border-radius: 0.62em;
+    box-shadow: 0 1.25em 1.58em rgba(8, 21, 65, 0.25);
+}
+
+.search-wrapper {
+    display: grid;
+    grid-template-columns: 9fr 3fr;
+    gap: 1.25em;
+}
+
+.search-wrapper button {
+    font-size: 1em;
+    background-color: #3d64e6;
+    color: #fff;
+    padding: 0.8em 0;
+    border: none;
+    border-radius: 1.5em;
+}
+
+.search-wrapper input {
+    font-size: 1em;
+    padding: 0 0.62em;
+    border: none;
+    border-bottom: 2px solid #3d64e6;
+    outline: none;
+    color: #222a43;
+}
+
+.container .flag-img {
+    display: block;
+    width: 45%;
+    min-width: "7.5em";
+    margin: "1.8em auto 1.2em auto"
+}
+
+#result {
+    margin-top: 1.25em;
+}
+
+.container h2 {
+    font-weight: 600;
+    color: #222a43;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1.8em;
+}
+
+.data-wrapper {
+    margin-bottom: 1em;
+    letter-spacing: 0.3px;
+}
+
+.container h4 {
+    display: inline;
+    font-weight: 500;
+    color: #222a43;
+}
+
+.container span {
+    color: "#5d6274"
+}
+
+.container h3 {
+    text-align: center;
+}
+
+
+/* let searchBtn = document.getElementbyId("search-btn") */
+/* let countryInp = document.getElementbyId("country-inp") */
+/* searchBtn.addEventListener("click", ()=>{
+    let countryName = countryInp.value;
+    let finalUrl = `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
+    console.log(finalUrl);
+    fetch(finalUrl)
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data[0])
+        console.log(data[0].capital[0])
+        console.log(data[0].flags.svg)
+        console.log(data[0].name.common)
+        console.log(data[0].continents[0])
+        console.log(object.keys(data[0].currencies)[0])
+        console.log(data[0].currencies[object.keys(data[0].currencies)].name)
+        console.log(
+            Object.values(data[0].languages).tostring().split(",").join(",")
+        )
+    
+result.innerHTML = `
+<img src="${data[0].flags.svg}" className="flag-img"/>
+<h2>${data[0].name.common}</h2>
+<div className="wrapper">
+<div className="data-wrapper">
+<h4>Capital</h4>
+<span>${data[0].capital[0]}</span>
+</div>
+</div>
+
+<div className="wrapper">
+<div className="data-wrapper">
+<h4>Continent:</h4>
+<span>${data[0].continents[0]}</span>
+</div>
+</div>
+
+<div className="wrapper">
+<div className="data-wrapper">
+<h4>Population:</h4>
+<span>${data[0].population}</span>
+</div>
+</div>
+
+<div className="wrapper">
+<div className="data-wrapper">
+<h4>Currencies:</h4>
+<span>${data[0].currencies[object.keys(data[0].currencies)].name}- ${object.keys(data[0].currencies)[0]}</span>
+</div>
+</div>
+<div className="wrapper">
+<div className="data-wrapper">
+<h4>Common Language:</h4>
+<span>${  Object.values(data[0].languages).tostring().split(",").join(",")}</span>
+</div>
+</div>
+`
+
+    }).catch(()=>{
+        if(countryName.length == 0)
+        result.innerHtml = `<h3>The input field empty</h3>`
+    }else{
+     result.innerHTML = `<h3>Valid country name</h3>`
+    }
+    )
+}) */
