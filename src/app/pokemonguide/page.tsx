@@ -1,6 +1,6 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import './style.css';
+import styles from './style.css';
 
 const Page = () => {
   const [pokemonData, setPokemonData] = useState(null);
